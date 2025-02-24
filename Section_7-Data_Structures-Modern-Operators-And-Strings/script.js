@@ -22,6 +22,23 @@ const mexicanFoods = new Set([
   'garlic',
 ]);
 
+const weekdays  = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+const openingHours ={
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekdays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+}
+
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano',
@@ -30,20 +47,7 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+
 
   order (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
@@ -64,12 +68,51 @@ const restaurant = {
   }
 };
 
+/*
+// Property NAMES
+const properties = Object.keys(openingHours);
+console.log(properties);
+let openStr = `We are open on ${properties.length} days: `
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+// Property VALUES
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entire object
+const entries = Object.entries(openingHours);
+// console.log(entries); // [Array(2), Array(2), Array(2)]
+
+// [key, value]
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
+// On thu we open at 12 and close at 22
+// On fri we open at 11 and close at 23
+// On sat we open at 0 and close at 24
+*/
+
+
+/*
+Optional Chaining (?.)
+for (const [i, item] of restaurant.mainMenu.entries()) {
+  console.log(`${i + 1}: ${item}`);
+}
+for (const day of weekdays) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day}, we open at ${open}`);
+}
+  */
+
 // Use ANY data type, return ANY data type, short-circuiting
-console.log(3 || "Jonas"); // 3
+/* console.log(3 || "Jonas"); // 3
 console.log('' || 'Jonas'); // Jonas
 console.log(true || 0); // true
 console.log(undefined || null); // null
- 
+ */
 
 /*
 // SPREAD, because on RIGHT side of =
