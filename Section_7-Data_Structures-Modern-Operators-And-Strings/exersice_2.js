@@ -94,3 +94,20 @@ for (const player of game.scored) {
   (player in scorers && scorers[player]++) || (scorers[player] = 1);
 }
 console.log(scorers);
+
+//solutions
+// 1.
+for (const [i, player] of game.scored.entries())
+  console.log(`Goal ${i + 1}: ${player}`);
+
+// 2.
+let averageR = 0;
+for (const odd of Object.values(game.odds)) averageR += odd;
+averageR /= Object.values(game.odds).length;
+console.log(averageR);
+
+// 3.
+for(const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr} ${odd}`);
+}
