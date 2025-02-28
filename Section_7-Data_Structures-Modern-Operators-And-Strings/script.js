@@ -68,6 +68,30 @@ const restaurant = {
   },
 };
 
+// Maps: Iteration
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct! 🎉'],
+  [false, 'Try again! 🎈'],
+])
+
+// Convert object to map
+console.log(Object.entries(openingHours));
+// Result: [""thu"", {open: 12, close: 22}
+// ""fri"", {open: 11, close: 23}
+// ""sat"", {open: 0, close: 24}]
+// ]
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+// Result: Map(3) {"thu" => {…}, "fri" => {…}, "sat" => {…}}
+
+
+
+/*
 //Maps: Fundamentals
 const rest = new Map();
 // Phương thức set của map tương tự như add Của new Set() -> Thêm phần tử vào map
@@ -98,6 +122,7 @@ console.log(rest.há('categories')); // true
 
 //Xóa phần tử trong map
 rest.delete(2); // Xóa phần tử có key = 2
+*/
 
 /*
 //New Opreerations to Make Sets Useful!
