@@ -22,9 +22,9 @@ const mexicanFoods = new Set([
   'garlic',
 ]);
 
-const weekdays  = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
-const openingHours ={
+const openingHours = {
   [weekdays[3]]: {
     open: 12,
     close: 22,
@@ -37,7 +37,7 @@ const openingHours ={
     open: 0, // Open 24 hours
     close: 24,
   },
-}
+};
 
 // Data needed for first part of the section
 const restaurant = {
@@ -47,26 +47,77 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-
-
-  order (starterIndex, mainIndex) {
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
-  orderDelivery ({ starterIndex = 1, mainIndex = 0, time, address }) {
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time, address }) {
     console.log(
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
 
-  orderPasta (ing1, ing2, ing3) {
-    console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}`);
+  orderPasta(ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}`
+    );
   },
 
-  orderPizza (mainIngredient, ...otherIngredients) {
+  orderPizza(mainIngredient, ...otherIngredients) {
     console.log(mainIngredient);
     console.log(otherIngredients);
-  }
+  },
 };
+
+//Maps: Fundamentals
+const rest = new Map();
+// Phương thức set của map tương tự như add Của new Set() -> Thêm phần tử vào map
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+// rest.set(2, 'Lisbon, Portugal');
+console.log(rest.set(2, 'Lisbon, Portugal')); // Map(3) {"name" => "Classico Italiano", 1 => "Firenze, Italy", 2 => "Lisbon, Portugal"}
+
+//Cú pháp thêm nhiều phần tử cùng một lúc
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open :D')
+  .set(false, 'We are closed :(');
+
+console.log(rest.get('name')); // Classico Italiano
+console.log(rest.get(true)); // We are open :D
+console.log(rest.get('1')); // undefined => Lưu ý khi get thì khai báo type nào phải trùng với type khi set
+
+const time = 8;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close'))); // We are closed :(
+// => rest.get sẽ truy cập biến true hoặc false vì bên trong là dấu && -> thu về một kết quả true hoặc false
+// -> True và false đã được set trong map với true = 'We are open :D' và false = 'We are closed :('
+
+//Kiểm tra có tồn tại hay không?
+console.log(rest.há('categories')); // true
+
+//Xóa phần tử trong map
+rest.delete(2); // Xóa phần tử có key = 2
+
+/*
+//New Opreerations to Make Sets Useful!
+const commFoods = italianFoods.intersection(mexicanFoods); // Result: Set(2) {'tomatoes', 'garlic'}
+console.log('🚀 ~ commFoods:', [...commFoods]); // ['tomatoes', 'garlic']
+
+console.log([...new Set([...italianFoods, ...mexicanFoods])]);
+// ['pasta', 'gnocchi', 'tomatoes', 'olive oil', 'garlic', 'basil', 'tortillas', 'beans', 'rice', 'avocado']
+
+const uniqueItalianFoods = italianFoods.difference(mexicanFoods);
+console.log('🚀 ~ uniqueItalianFoods:', [...uniqueItalianFoods]); // ['pasta', 'gnocchi', 'olive oil', 'basil']
+
+const uniqueMexicanFoods = mexicanFoods.difference(italianFoods);
+console.log('🚀 ~ uniqueMexicanFoods:', [...uniqueMexicanFoods]); // ['tortillas', 'beans', 'rice', 'avocado']
+
+const uniqueItalianAndMexicanFoods =
+  italianFoods.symmetricDifference(mexicanFoods); // Result: Set(6) {'pasta', 'gnocchi', 'olive oil', 'basil', 'tortillas', 'beans'}
+
+console.log(italianFoods.isDisjoinFrom(mexicanFoods)); // false
+*/
 
 /*
 // Property NAMES
@@ -94,7 +145,6 @@ for (const [key, { open, close }] of entries) {
 // On fri we open at 11 and close at 23
 // On sat we open at 0 and close at 24
 */
-
 
 /*
 Optional Chaining (?.)
@@ -161,7 +211,7 @@ const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 const str = 'Jonas';
 const letters = [...str, ' ', ' S.']; // ['J', 'o', 'n', 'a', 's', ' ', 'S.']
 
-const ingredients = [/*prompt("Let\'s make pasta! Ingredient 1?"), prompt('Ingredient 2?'), prompt('Ingredient 3?')*///];*/
+const ingredients = [/*prompt("Let\'s make pasta! Ingredient 1?"), prompt('Ingredient 2?'), prompt('Ingredient 3?')*/ //];*/
 /*
 console.log("🚀 ~ ingredients:", ingredients); //
 
@@ -215,7 +265,6 @@ console.log("🚀 ~ restaurant:", restaurant.name); // Classico Italiano
 // console.log("🚀 ~ o, c:", o, c)
 // //o: 11, c: 23;
 
-
 //--Destructuring Arrays
 // const arr= [2,3,4];
 // const a = arr[0];
@@ -249,4 +298,3 @@ console.log("🚀 ~ restaurant:", restaurant.name); // Classico Italiano
 // // default values
 // const [p, q, r] = [8, 9];
 // console.log(p, q, r);
-
