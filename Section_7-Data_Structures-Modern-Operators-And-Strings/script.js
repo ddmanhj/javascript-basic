@@ -68,6 +68,7 @@ const restaurant = {
   },
 };
 
+/*
 // Maps: Iteration
 const question = new Map([
   ['question', 'What is the best programming language in the world?'],
@@ -77,7 +78,7 @@ const question = new Map([
   ['correct', 3],
   [true, 'Correct! 🎉'],
   [false, 'Try again! 🎈'],
-])
+]);
 
 // Convert object to map
 console.log(Object.entries(openingHours));
@@ -89,7 +90,21 @@ const hoursMap = new Map(Object.entries(openingHours));
 console.log(hoursMap);
 // Result: Map(3) {"thu" => {…}, "fri" => {…}, "sat" => {…}}
 
+// Quiz app
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+const answer = Number(prompt('Your answer'));
 
+// Convert map to array
+console.log([...question]);
+
+// Result:
+// Answer 1: C
+// Answer 2: Java
+// Answer 3: JavaScript
+*/
 
 /*
 //Maps: Fundamentals
