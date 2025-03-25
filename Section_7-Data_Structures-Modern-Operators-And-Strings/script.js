@@ -68,7 +68,104 @@ const restaurant = {
   },
 };
 
+
+
+/*Working with string P1 
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]); // A
+console.log(plane[1]); // 3
+console.log(plane[2]); // 2
+console.log('B737'[0]); // B
+
+console.log(airline.indexOf("r")); // 6
+console.log(airline.lastIndexOf("r")); // 10
+console.log(airline.indexOf("portugal")) // -1
+
+console.log(airline.slice(4)); // Air Portugal
+console.log(airline.slice(4, 9));// Result: Air
+console.log(airline.slice(0, airline.indexOf(" "))); // TAP
+
+console.log(airline.slice(airline.lastIndexOf(" ") + 1)) // Portugal
+
+console.log(airline.slice(-2)); // al
+console.log(airline.slice(1, -1)); // AP Air Portuga
+
+const checkMiddleSeat = function(seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  if( s === "B" || s === "e") console.log("You got the middle seat 😬");
+  else console.log("You got lucky 😎");
+}
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(airline.toLowerCase()); // tap air portugal
+console.log(airline.toUpperCase()); // TAP AIR PORTUGAL
+
+// Fix capitalization in name (Sửa tên khách hàng khi có ký tự hoa lẫn ký tự thường)
+const passenger = "mAnHJ";
+const passengerLower = passenger.toLowerCase(); // manhj
+const passengerCorrect = passengerLower[0].toLocaleLowerCase() + passengerLower.slice(1); // Manhj
+
+const email = "hello@manhj.io";
+const loginEmail =  '   Hello@Manhj.Io \n';
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail); // true
+
+// Replacing
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.'); // 288.97$
+
+const announcement = 'All passengers come to boarding door 23. Boarding door 23!';
+console.log(announcement.replace('door', 'gate')); // All passengers come to boarding gate 23. Boarding door 23!
+
+console.log(announcement.replaceAll('door', 'gate')); // All passengers come to boarding gate 23. Boarding gate 23!
+
+//legacy
+console.log(announcement.replace(/door/g, 'gate')); // All passengers come to boarding gate 23. Boarding gate 23!
+
+// Booleans
+const plane1 = 'Airbus A320neo';
+console.log(plane1.includes('A320')); // true
+console.log(plane1.includes('Boeing')); // false
+
+console.log(plane1.startsWith('Airb')); // true
+console.log(plane1.startsWith('A320')); // false
+
+console.log(plane1.endsWith('neo')); // true
+console.log(plane1.endsWith('A320')); // false
+console.log(plane1.endsWith('no'), 'no'); // false
+
+if(plane1.startsWith('Airbus') && plane1.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family');
+}
+
+// Practice exercise
+const checkBaggage = function(items) {
+  const baggage = items.toLowerCase();
+  if(baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are NOT allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+}
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Sunglasses, a coat, and a camera');
+checkBaggage('Got some snacks and a gun for protection');
 /*
+
+
+
 // Maps: Iteration
 const question = new Map([
   ['question', 'What is the best programming language in the world?'],
@@ -87,7 +184,7 @@ console.log(Object.entries(openingHours));
 // ""sat"", {open: 0, close: 24}]
 // ]
 const hoursMap = new Map(Object.entries(openingHours));
-console.log(hoursMap);
+console.log(hoursMap); 
 // Result: Map(3) {"thu" => {…}, "fri" => {…}, "sat" => {…}}
 
 // Quiz app
@@ -198,8 +295,8 @@ for (const day of weekdays) {
   */
 
 // Use ANY data type, return ANY data type, short-circuiting
-/* console.log(3 || "Jonas"); // 3
-console.log('' || 'Jonas'); // Jonas
+/* console.log(3 || "Manhj"); // 3
+console.log('' || 'Manhj'); // Manhj
 console.log(true || 0); // true
 console.log(undefined || null); // null
  */
@@ -248,7 +345,7 @@ const mainMenuCopy = [...restaurant.mainMenu];
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
 //Iterables: arrays, strings, maps, sets. NOT objects
-const str = 'Jonas';
+const str = 'Manhj';
 const letters = [...str, ' ', ' S.']; // ['J', 'o', 'n', 'a', 's', ' ', 'S.']
 
 const ingredients = [/*prompt("Let\'s make pasta! Ingredient 1?"), prompt('Ingredient 2?'), prompt('Ingredient 3?')*/ //];*/
