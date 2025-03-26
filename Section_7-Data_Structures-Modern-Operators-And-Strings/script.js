@@ -68,9 +68,18 @@ const restaurant = {
   },
 };
 
+//Working with string P3
+console.log('a+very+nice+string'.split('+')); // ['a', 'very', 'nice', 'string']
+console.log('Manhj Duy'.split(' ')); // ['Manhj', 'Duy']
+console.log('Manhj Duy'.split('')); // ['M', 'a', 'n', 'h', 'j', ' ', 'D', 'u', 'y']
+console.log('Dung Manhj Duy'.split('D')); // ['', 'ung Manhj ', 'uy']
 
+console.log(['abc', 'xyz'].join(' ')); // abc xyz
+const [firstName, lastName] = 'Duy Manhj'.split(' ');
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' '); // Mr. Duy MANHJ
 
-/*Working with string P1 
+/*
+//Working with string P1 
 const airline = 'TAP Air Portugal';
 const plane = 'A320';
 
@@ -103,6 +112,7 @@ checkMiddleSeat('11B');
 checkMiddleSeat('23C');
 checkMiddleSeat('3E');
 
+//Working with string P2 
 console.log(airline.toLowerCase()); // tap air portugal
 console.log(airline.toUpperCase()); // TAP AIR PORTUGAL
 
