@@ -68,15 +68,8 @@ const restaurant = {
   },
 };
 
-//Working with string P3
-console.log('a+very+nice+string'.split('+')); // ['a', 'very', 'nice', 'string']
-console.log('Manhj Duy'.split(' ')); // ['Manhj', 'Duy']
-console.log('Manhj Duy'.split('')); // ['M', 'a', 'n', 'h', 'j', ' ', 'D', 'u', 'y']
-console.log('Dung Manhj Duy'.split('D')); // ['', 'ung Manhj ', 'uy']
 
-console.log(['abc', 'xyz'].join(' ')); // abc xyz
-const [firstName, lastName] = 'Duy Manhj'.split(' ');
-const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' '); // Mr. Duy MANHJ
+
 
 /*
 //Working with string P1 
@@ -172,6 +165,56 @@ const checkBaggage = function(items) {
 checkBaggage('I have a laptop, some Food and a pocket Knife');
 checkBaggage('Sunglasses, a coat, and a camera');
 checkBaggage('Got some snacks and a gun for protection');
+
+//Working with string P3
+console.log('a+very+nice+string'.split('+')); // ['a', 'very', 'nice', 'string']
+console.log('Manhj Duy'.split(' ')); // ['Manhj', 'Duy']
+console.log('Manhj Duy'.split('')); // ['M', 'a', 'n', 'h', 'j', ' ', 'D', 'u', 'y']
+console.log('Dung Manhj Duy'.split('D')); // ['', 'ung Manhj ', 'uy']
+
+console.log(['abc', 'xyz'].join(' ')); // abc xyz
+const [firstName, lastName] = 'Duy Manhj'.split(' ');
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' '); // Mr. Duy MANHJ
+
+const capitalizeName = function(name) {
+  const names = name.split(" ");
+  const namesUpper = [];
+  for (const word of names) {
+      // namesUpper.push(word[0].toLowerCase() + word.slice(1));
+      namesUpper.push(word.replace(word[0], word[0].toUpperCase()));
+  }
+
+  console.log(namesUpper.join(' '));
+}
+
+capitalizeName('jessica ann smith davis');
+capitalizeName('manhj duy');
+
+// Padding
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '+').padEnd(35, '+')); // +++++++Go to gate 23!+++++++ +
+
+const maskCreditCard = function(number) {
+  const str = number + "";
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+}
+
+maskCreditCard(6463783651421); // ************1421
+maskCreditCard(43378463864647384); // ************7384
+maskCreditCard('334859493847755774747'); // *************4747
+
+//Repeat
+const message2 = 'Bad weather... All Departures Delayed... ';
+console.log(message2.repeat(5));
+
+const planesInLine = function(n) {
+  console.log(`There are ${n} planes in line ${'✈️'.repeat(n)}`);
+}
+
+planesInLine(5);
+planesInLine(3);
+planesInLine(12);
 /*
 
 
